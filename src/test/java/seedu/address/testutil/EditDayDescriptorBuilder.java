@@ -34,8 +34,6 @@ public class EditDayDescriptorBuilder {
         descriptor = new EditCommand.EditDayDescriptor();
         descriptor.setDate(day.getDate());
         descriptor.setWeight(day.getWeight());
-        descriptor.setEmail(day.getEmail());
-        descriptor.setAddress(day.getAddress());
         descriptor.setTags(day.getTags());
     }
 

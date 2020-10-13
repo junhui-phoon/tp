@@ -5,9 +5,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 public class Time {
     public static final String MESSAGE_CONSTRAINTS =
-            "Calorie Count should only contain numeric characters and spaces, and it should not be blank";
+            "Time should be in the format of HHMM and it should not be blank";
 
-    public static final String VALIDATION_REGEX = "[0-9][0-9][0-9][0-9]";
+    public static final String VALIDATION_REGEX = "^[0-9]{4}$";
 
     public final String time;
 
@@ -26,7 +26,6 @@ public class Time {
      * Returns if a given string is a valid Time.
      */
     public static boolean isValidTime(String test) {
-
         if (test.matches(VALIDATION_REGEX)) {
             int hour = Integer.parseInt(test.substring(0, 2));
             int min = Integer.parseInt(test.substring(2, 4));
@@ -40,6 +39,4 @@ public class Time {
     public String toString() {
         return time;
     }
-
-
 }

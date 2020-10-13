@@ -6,7 +6,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class CalorieCount {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Calorie Count should only contain numeric characters and spaces, and it should not be blank";
+            "Calorie Count should only contain numeric characters, and it should not be blank";
 
     public static final String VALIDATION_REGEX = "[1-9][\\p{Digit}]*";
 

@@ -28,25 +28,43 @@ public class Day {
     // Identity fields
     private final Date date;
     private final Weight weight;
-    private final Email email;
 
     // Data fields
-    private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Class constructor
      */
-    public Day(Date date, Weight weight, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(date, weight, email, address, tags);
+    public Day(Date date, Weight weight, Set<Tag> tags) {
+        requireAllNonNull(date, weight, tags);
         this.date = date;
         this.weight = weight;
-        this.email = email;
-        this.address = address;
         this.tags.addAll(tags);
         this.calorieOutputList = new ArrayList<Output>();
         this.calorieInputList = new ArrayList<Input>();
     }
+
+    /**
+     * Class constructor
+     */
+    public Day(Date date, Weight weight, Set<Tag> tags, List<Input> inputList,
+               List<Output> outputList) {
+        requireAllNonNull(date, weight, tags);
+        this.date = date;
+        this.weight = weight;
+        this.tags.addAll(tags);
+        this.calorieOutputList = outputList;
+        this.calorieInputList = inputList;
+    }
+
+    public List<Input> getInputList() {
+        return calorieInputList;
+    }
+
+    public List<Output> getOutputList() {
+        return calorieOutputList;
+    }
+
 
     public void addTotalCalorieOut(CalorieCount calorieCount) {
         totalCalorieOut += Integer.parseInt(calorieCount.toString());
@@ -74,7 +92,7 @@ public class Day {
     /**
      * returns the total input calorie
      */
-    public int getTotalCalorieIn() {
+    public int getTotalInputCalorie() {
         return totalCalorieIn;
     }
 
@@ -101,14 +119,6 @@ public class Day {
         return weight;
     }
 
-    public Email getEmail() {
-        return email;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -128,8 +138,7 @@ public class Day {
         }
 
         return otherDay != null
-                && otherDay.getDate().equals(getDate())
-                && (otherDay.getEmail().equals(getEmail()) || otherDay.getWeight().equals(getWeight()));
+                && otherDay.getDate().equals(getDate());
     }
 
     /**
@@ -149,15 +158,13 @@ public class Day {
         Day otherDay = (Day) other;
         return otherDay.getDate().equals(getDate())
                 && otherDay.getWeight().equals(getWeight())
-                && otherDay.getEmail().equals(getEmail())
-                && otherDay.getAddress().equals(getAddress())
                 && otherDay.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(date, weight, email, address, tags);
+        return Objects.hash(date, weight, tags);
     }
 
     @Override
@@ -167,9 +174,6 @@ public class Day {
                 .append(" Weight: ")
                 .append(getWeight())
                 .append(" Email: ")
-                .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

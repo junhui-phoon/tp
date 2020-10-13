@@ -12,7 +12,7 @@ public class Date {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Date should only contain numbers, and it must be 6 digits long in the form of DDMMYY. ";
+            "Date should be in the form of YYYY-MM-DD. ";
     public static final String VALIDATION_REGEX = "[^\\s].*";
     public final String value;
 

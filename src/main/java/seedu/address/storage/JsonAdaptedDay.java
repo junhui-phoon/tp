@@ -10,11 +10,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.day.Address;
 import seedu.address.model.day.Date;
 import seedu.address.model.day.Day;
-import seedu.address.model.day.Email;
 import seedu.address.model.day.Weight;
+import seedu.address.model.day.calorie.Input;
+import seedu.address.model.day.calorie.Output;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -26,13 +26,32 @@ class JsonAdaptedDay {
 
     private final String date;
     private final String weight;
-    private final String email;
-    private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final List<JsonAdaptedInput> inputList = new ArrayList<>();
+    private final List<JsonAdaptedOutput> outputList = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedDay} with the given day details.
      */
+    @JsonCreator
+    public JsonAdaptedDay(@JsonProperty("date") String date, @JsonProperty("weight") String weight,
+                          @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+                          @JsonProperty("inputList") List<JsonAdaptedInput> inputList,
+                          @JsonProperty("outputList") List<JsonAdaptedOutput> outputList) {
+        this.date = date;
+        this.weight = weight;
+        if (tagged != null) {
+            this.tagged.addAll(tagged);
+        }
+        if (inputList != null) {
+            this.inputList.addAll(inputList);
+        }
+        if (outputList != null) {
+            this.outputList.addAll(outputList);
+        }
+    }
+
+    /*
     @JsonCreator
     public JsonAdaptedDay(@JsonProperty("date") String date, @JsonProperty("weight") String weight,
                           @JsonProperty("email") String email, @JsonProperty("address") String address,
@@ -45,6 +64,7 @@ class JsonAdaptedDay {
             this.tagged.addAll(tagged);
         }
     }
+*/
 
     /**
      * Converts a given {@code Date} into this class for Jackson use.
@@ -52,10 +72,14 @@ class JsonAdaptedDay {
     public JsonAdaptedDay(Day source) {
         date = source.getDate().value;
         weight = source.getWeight().value;
-        email = source.getEmail().value;
-        address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
+                .collect(Collectors.toList()));
+        inputList.addAll(source.getCalorieInputList().stream()
+                .map(JsonAdaptedInput::new)
+                .collect(Collectors.toList()));
+        outputList.addAll(source.getCalorieOutputList().stream()
+                .map(JsonAdaptedOutput::new)
                 .collect(Collectors.toList()));
     }
 
@@ -86,24 +110,18 @@ class JsonAdaptedDay {
         }
         final Weight modelWeight = new Weight(weight);
 
-        if (email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
+        final List<Input> dayInputs = new ArrayList<>();
+        for (JsonAdaptedInput input : inputList) {
+            dayInputs.add(input.toModelType());
         }
-        if (!Email.isValidEmail(email)) {
-            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
-        }
-        final Email modelEmail = new Email(email);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+        final List<Output> dayOutputs = new ArrayList<>();
+        for (JsonAdaptedOutput output : outputList) {
+            dayOutputs.add(output.toModelType());
         }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
-        }
-        final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(dayTags);
-        return new Day(modelDate, modelWeight, modelEmail, modelAddress, modelTags);
+        return new Day(modelDate, modelWeight, modelTags);
     }
 
 }

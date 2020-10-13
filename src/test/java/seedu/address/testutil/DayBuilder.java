@@ -1,13 +1,15 @@
 package seedu.address.testutil;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import seedu.address.model.day.Address;
 import seedu.address.model.day.Date;
 import seedu.address.model.day.Day;
-import seedu.address.model.day.Email;
 import seedu.address.model.day.Weight;
+import seedu.address.model.day.calorie.Input;
+import seedu.address.model.day.calorie.Output;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -18,13 +20,11 @@ public class DayBuilder {
 
     public static final String DEFAULT_DATE = "010120";
     public static final String DEFAULT_WEIGHT = "42";
-    public static final String DEFAULT_EMAIL = "alice@gmail.com";
-    public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private Date date;
     private Weight weight;
-    private Email email;
-    private Address address;
+    private List<Input> inputs;
+    private List<Output> outputs;
     private Set<Tag> tags;
 
     /**
@@ -33,8 +33,8 @@ public class DayBuilder {
     public DayBuilder() {
         date = new Date(DEFAULT_DATE);
         weight = new Weight(DEFAULT_WEIGHT);
-        email = new Email(DEFAULT_EMAIL);
-        address = new Address(DEFAULT_ADDRESS);
+        inputs = new ArrayList<>();
+        outputs = new ArrayList<>();
         tags = new HashSet<>();
     }
 
@@ -44,8 +44,8 @@ public class DayBuilder {
     public DayBuilder(Day dayToCopy) {
         date = dayToCopy.getDate();
         weight = dayToCopy.getWeight();
-        email = dayToCopy.getEmail();
-        address = dayToCopy.getAddress();
+        inputs = dayToCopy.getCalorieInputList();
+        outputs = dayToCopy.getCalorieOutputList();
         tags = new HashSet<>(dayToCopy.getTags());
     }
 
@@ -65,13 +65,6 @@ public class DayBuilder {
         return this;
     }
 
-    /**
-     * Sets the {@code Address} of the {@code Day} that we are building.
-     */
-    public DayBuilder withAddress(String address) {
-        this.address = new Address(address);
-        return this;
-    }
 
     /**
      * Sets the {@code Weight} of the {@code Day} that we are building.
@@ -81,16 +74,9 @@ public class DayBuilder {
         return this;
     }
 
-    /**
-     * Sets the {@code Email} of the {@code Day} that we are building.
-     */
-    public DayBuilder withEmail(String email) {
-        this.email = new Email(email);
-        return this;
-    }
 
     public Day build() {
-        return new Day(date, weight, email, address, tags);
+        return new Day(date, weight, tags, inputs, outputs);
     }
 
 }

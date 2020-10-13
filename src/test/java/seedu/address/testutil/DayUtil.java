@@ -32,8 +32,6 @@ public class DayUtil {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_DATE + day.getDate().value + " ");
         sb.append(PREFIX_WEIGHT + day.getWeight().value + " ");
-        sb.append(PREFIX_EMAIL + day.getEmail().value + " ");
-        sb.append(PREFIX_ADDRESS + day.getAddress().value + " ");
         day.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );

@@ -45,7 +45,7 @@ public class DayCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         date.setText("Date: " + day.getDate().value);
         weight.setText("Weight: " + day.getWeight().value + " kg");
-        totalCalorieIn.setText("Total Calories In: " + day.getTotalCalorieIn() + " calories");
+        totalCalorieIn.setText("Total Calories In: " + day.getTotalInputCalorie() + " calories");
         totalCalorieOut.setText("Total Calories Out: " + day.getTotalOutputCalorie() + " calories");
     }
 

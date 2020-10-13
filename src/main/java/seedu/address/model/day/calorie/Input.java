@@ -1,14 +1,16 @@
 package seedu.address.model.day.calorie;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
 public class Input extends Calorie {
 
     private Food food;
-
     /**
      * Every field must be present and not null.
      */
     public Input(Time time, Food food, CalorieCount calorieCount) {
         super(calorieCount, time);
+        requireAllNonNull(food, time, calorieCount);
         this.food = food;
     }
 
@@ -29,7 +31,23 @@ public class Input extends Calorie {
         return builder.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new Input(new Time("12:00"), new Food("Laksa"), new CalorieCount("400")));
+    /**
+     * Returns true if both Input have the same identity and data fields.
+     * This defines a stronger notion of equality between two Input.
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Input)) {
+            return false;
+        }
+
+        Input otherInput = (Input) other;
+        return otherInput.getCalorieCount().equals(getCalorieCount())
+                && otherInput.getTime().equals(getTime())
+                && otherInput.getFood().equals(getFood());
     }
 }

@@ -1,14 +1,16 @@
 package seedu.address.model.day.calorie;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
 public class Output extends Calorie {
 
     private Exercise exercise;
-    private Time time;
     /**
      * Every field must be present and not null.
      */
     public Output(Time time, Exercise exercise, CalorieCount calorieCount) {
         super(calorieCount, time);
+        requireAllNonNull(exercise, time, calorieCount);
         this.exercise = exercise;
     }
 
@@ -29,7 +31,19 @@ public class Output extends Calorie {
         return builder.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new Output(new Time("13:00"), new Exercise("running"), new CalorieCount("100")));
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Output)) {
+            return false;
+        }
+
+        Output otherInput = (Output) other;
+        return otherInput.getCalorieCount().equals(getCalorieCount())
+                && otherInput.getTime().equals(getTime())
+                && otherInput.getExercise().equals(getExercise());
     }
 }

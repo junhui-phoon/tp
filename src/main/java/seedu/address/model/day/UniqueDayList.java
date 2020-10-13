@@ -52,9 +52,11 @@ public class UniqueDayList implements Iterable<Day> {
      */
     public void add(Day toAdd) {
         requireNonNull(toAdd);
+        /*
         if (contains(toAdd)) {
             throw new DuplicateDayException();
         }
+        */
         internalList.add(toAdd);
     }
 
@@ -70,11 +72,11 @@ public class UniqueDayList implements Iterable<Day> {
         if (index == -1) {
             throw new DayNotFoundException();
         }
-
+        /*
         if (!target.isSameDay(editedDay) && contains(editedDay)) {
             throw new DuplicateDayException();
         }
-
+        */
         internalList.set(index, editedDay);
     }
 

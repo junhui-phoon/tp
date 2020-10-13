@@ -1,6 +1,6 @@
 package seedu.address.model.day.calorie;
 
-public class Calorie {
+public abstract class Calorie {
     // Identity fields
     private CalorieCount calorieCount;
     private Time time;
