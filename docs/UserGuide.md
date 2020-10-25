@@ -2,7 +2,6 @@
 
 # Table of Contents
   * [1. Introduction](#1-introduction)
-    
     + [1.1 Product overview](#11-product-overview)
   * [2. About](#2-about)
     + [2.1 Purpose](#21-purpose)
