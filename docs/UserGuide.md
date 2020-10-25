@@ -2,7 +2,7 @@
 layout: page
 title: My Fitness Buddy User Guide
 ---
-
+## Table of Contents
 * Table of Contents
 {:toc}
 
