@@ -19,6 +19,7 @@ This document specifies the architecture, implementation and design decisions fo
 the application, My Fitness Buddy.
 
 ### 1.3 Intended Audience
+
 This Developer Guide is for anyone who are interested in the implementation of My Fitness Buddy,
 as well as future developers that are interested in further developing of our application.
 
