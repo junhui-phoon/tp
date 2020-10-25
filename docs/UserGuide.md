@@ -69,7 +69,7 @@ Here are some basic commands you can try:
 
 ### 4.1 Profile commands
 
-#### Creating a new profile : `create`
+#### 4.1.1 Creating a new profile : `create`
 Create a new profile for a Person.
 
 Format: `create n/NAME id/ID_NUM h/HEIGHT w/TARGET_WEIGHT`
@@ -77,7 +77,7 @@ Format: `create n/NAME id/ID_NUM h/HEIGHT w/TARGET_WEIGHT`
 Examples:  
 `create n/Johnny id/1234 h/170 w/68` 
 
-#### Editing an existing profile: `profile edit`
+#### 4.1.2 Editing an existing profile: `profile edit`
 Edit an existing profile.
 
 Format: `profile edit n/NAME id/ID_NUM h/HEIGHT w/TARGET_WEIGHT`
@@ -87,7 +87,7 @@ Examples:
 
 ### 4.2 Day commands
 
-#### Adding a daily weight record : `add d/DATE w/WEIGHT`
+#### 4.2.1 Adding a daily weight record : `add d/DATE w/WEIGHT`
 Add a new daily weight record.
 
 Format: `add d/DATE w/WEIGHT`
@@ -95,7 +95,7 @@ Format: `add d/DATE w/WEIGHT`
 Examples:  
 `add d/2020-10-16 w/70` 
 
-#### Editing a daily weight record : `edit INDEX w/WEIGHT`
+#### 4.2.2 Editing a daily weight record : `edit INDEX w/WEIGHT`
 Edit a daily weight record.
 
 Format: `edit INDEX w/WEIGHT`
@@ -103,7 +103,7 @@ Format: `edit INDEX w/WEIGHT`
 Examples:  
 `edit 1 w/65` 
 
-#### Deleting a daily record: `delete INDEX`
+#### 4.2.3 Deleting a daily record: `delete INDEX`
 Deletes a daily record at INDEX.
 
 Format: `delete INDEX`
@@ -111,7 +111,7 @@ Format: `delete INDEX`
 Examples:
 `delete 2`
 
-#### 4.3 Calorie Commands
+### 4.3 Calorie Commands
 Commands in this section are useful in keeping track of the various calorie content.
 You can use them to log different kinds of calorie content and their relevant information.
 
@@ -142,7 +142,7 @@ Prefix | Meaning
 
 
 #### 4.3.1 Adding Calorie
-##### Adding a calorie input : `calorie tp/in`
+##### 4.3.1.1 Adding a calorie input : `calorie tp/in`
 
 Add calorie input to the calorie tracker.
 
@@ -154,7 +154,7 @@ Meaning:`The user ate laksa with the calorie count of 290kcal at 12pm on the dat
 
 _TIP: If the `DATE` field is left empty, the calorie input will be added to the current date entry._
 
-##### Adding a calorie output : `calorie tp/out`
+##### 4.3.1.2 Adding a calorie output : `calorie tp/out`
 Add calorie output to the calorie tracker.
 
 Format: `calorie tp/out d/DATE t/TIME e/EXERCISE c/CALORIE COUNT`
@@ -165,8 +165,8 @@ Meaning:`The user ran on October 26 2020 at 12pm and has expanded 400kcal`
 
 _TIP: If the `DATE` field is left empty, the calorie output will be added to the current date entry._
 
-### 4.3.2 Removing Calorie
-##### Removing a calorie input : `remove tp/in`
+#### 4.3.2 Removing Calorie
+##### 4.3.2.1 Removing a calorie input : `remove tp/in`
 
 Removes a wrong calorie input entry from the calorie tracker.
 
@@ -182,7 +182,7 @@ can be used instead_
 
 Example:`remove 3 tp/in i/3` 
 
-##### Removing a calorie Output : `remove tp/out`
+##### 4.3.2.2 Removing a calorie output : `remove tp/out`
 
 Removes a wrong calorie Output entry from the calorie tracker.
 
@@ -199,7 +199,7 @@ can be used instead_
 Examples:`remove 3 tp/out i/3` 
 
 #### 4.3.3 Modifying Calorie
-##### Modifying a calorie input : `modify tp/in`
+##### 4.3.3.1 Modifying a calorie input : `modify tp/in`
 
 Modify a calorie input entry with details recorded wrongly
 
@@ -217,7 +217,7 @@ _TIP: Instead of using d/DATE to specify the date of the log in which the calori
 can be used instead_
 Examples:`modify 3 tp/out i/3 c/123`
 
-##### Modifying a calorie input : `modify tp/out`
+##### 4.3.3.2 Modifying a calorie output : `modify tp/out`
 
 Modify a calorie out entry with details recorded wrongly
 
@@ -235,12 +235,12 @@ _TIP: Instead of using d/DATE to specify the date of the log in which the calori
 can be used instead_
 
 ### 4.4 Data Visualization
-#### View all calorie inputs and outputs of a day: `Double click on a day`
+#### 4.4.1 View all calorie inputs and outputs of a day: `Double click on a day`
 Shows a list of all entries of calorie inputs and calorie outputs of a particular day.
 
 Image: `image to be added`
 
-#### View Statistics: `stats`
+#### 4.4.2 View Statistics: `stats`
 
 Shows the charts generated from the daily entries of weight and calorie input/output in a pop-up window.
 
@@ -263,14 +263,14 @@ Calorie Chart:
 ![calorie_stats_chart](images/calorie_stats_chart.png)
 
 _TIP: Charts can be viewed alternatively by going to the menu bar, click on `Statistics` and select the 
-the chart that you want to view._
+ chart that you want to view._
 
 ![chart_menu_bar](images/chart_menu_bar.png)
 
 
 
 ### 4.5 General commands
-#### Viewing help : `help`
+#### 4.5.1 Viewing help : `help`
 
 Shows a message explaining how to access the help page.
 
@@ -279,13 +279,13 @@ Shows a message explaining how to access the help page.
 Format: `help`
 
 
-#### Clearing all entries : `clear`
+#### 4.5.2 Clearing all entries : `clear`
 Clears all saved entries in MyFitnessBuddy.
 
 Format: `clear`
 
 
-#### Exiting the program : `exit`
+#### 4.5.3 Exiting the program : `exit`
 Exits the program.
 
 Format: `exit`
@@ -298,14 +298,15 @@ My Fitness Buddy data are saved in the hard disk automatically after any command
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+## 5. FAQ
+### 5.1 Transferring Data
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous My Fitness Buddy home folder.  
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## 6. Command summary
 
 Action | Format
 --------|------------------
