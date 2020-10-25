@@ -1,40 +1,10 @@
-# My Fitness Buddy User Guide
+---
+layout: page
+title: My Fitness Buddy User Guide
+---
 
-# Table of Contents
-  * [1. Introduction](#1-introduction)
-    + [1.1 Product overview](#11-product-overview)
-  * [2. About](#2-about)
-    + [2.1 Purpose](#21-purpose)
-    + [2.2 Intended Audience](#22-intended-audience)
-  * [3. Quick start](#3-quick-start)
-  * [4. Features](#4-features)
-    + [4.1 Profile commands](#41-profile-commands)
-      - [Creating a new profile](#creating-a-new-profile----create-)
-      - [Editing an existing profile](#editing-an-existing-profile---profile-edit-)
-    + [4.2 Day commands](#42-day-commands)
-      - [Adding a daily weight record](#adding-a-daily-weight-record----add-d-date-w-weight-)
-      - [Editing a daily weight record](#editing-a-daily-weight-record----edit-index-w-weight-)
-      - [Deleting a daily record](#deleting-a-daily-record---delete-index-)
-    + [4.3 Calorie Commands](#43-calorie-commands)
-      - [4.3.1 Adding Calorie](#431-adding-calorie)
-        * [Adding a calorie input](#adding-a-calorie-input----calorie-tp-in-)
-        * [Adding a calorie output](#adding-a-calorie-output----calorie-tp-out-)
-    + [4.3.2 Removing Calorie](#432-removing-calorie)
-        * [Removing a calorie input](#removing-a-calorie-input----remove-tp-in-)
-        * [Removing a calorie Output](#removing-a-calorie-output----remove-tp-out-)
-     + [4.3.3 Modifying Calorie](#433-modifying-calorie)
-        * [Modifying a calorie input](#modifying-a-calorie-input----modify-tp-in-)
-        * [Modifying a calorie input](#modifying-a-calorie-input----modify-tp-out-)
-    + [4.4 Data Visualization](#44-data-visualization)
-      - [View all calorie inputs and outputs of a day](#view-all-calorie-inputs-and-outputs-of-a-day---double-click-on-a-day-)
-      - [View Statistics](#view-statistics---command-to-be-added-)
-    + [4.5 General commands](#45-general-commands)
-      - [Viewing help](#viewing-help----help-)
-      - [Clearing all entries](#clearing-all-entries----clear-)
-      - [Exiting the program ](#exiting-the-program----exit-)
-    + [4.6 Saving the data](#46-saving-the-data)
-  * [FAQ](#faq)
-  * [Command summary](#command-summary)
+## Table of Contents
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
