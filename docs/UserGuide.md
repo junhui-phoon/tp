@@ -2,6 +2,9 @@
 layout: page
 title: My Fitness Buddy User Guide
 ---
+Welcome to My Fitness Buddy User Guide! Choose a topic from the [Table of Contents](#table-of-contents)
+below to get step-by-step instructions and answers.
+
 ## Table of Contents
 * Table of Contents
 {:toc}
