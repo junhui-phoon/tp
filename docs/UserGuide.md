@@ -54,7 +54,7 @@ Here are some basic commands you can try:
     * `calorie d/2020-10-26 tp/in t/1200 f/laksa c/290`: Adds a calorie input entry with the specified date.
     * `stats v/all`: View both calorie and weight charts in a pop-up window.
 
-1. Head to [Features](#4. Features) below to learn more details of each command. 
+1. Head to [Features](#4-Features) below to learn more details of each command. 
 
 --------------------------------------------------------------------------------------------------------------------
 
